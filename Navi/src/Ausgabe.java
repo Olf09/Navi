@@ -1,4 +1,5 @@
-import java.awt.List;
+import java.util.List;
+import java.util.ArrayList;
 
 /**
  * 
@@ -9,14 +10,14 @@ import java.awt.List;
  *
  */
 public class Ausgabe {
-	private String[] zwischenziel;
+	private ArrayList<Datenelement> zwischenziel;
 	private int strecke;
 	
-	public Ausgabe(List zwischenziel, int strecke) {
-		this.zwischenziel = new String[zwischenziel.getItemCount()];
-		for(int i=0;i<zwischenziel.getItemCount();i++) {
-			this.zwischenziel[i]=zwischenziel.getItem(i);
-		}
+	public Ausgabe(List<Datenelement> zwischenziel, int strecke) {
+		zwischenziel = new ArrayList<Datenelement>();
 		this.strecke=strecke;
+	}
+	public int getStrecke() {
+		return strecke;
 	}
 }

@@ -25,7 +25,7 @@ public class Knoten {
 		naechster[index]=knoten;
 	}
 	public Datenelement suche(Datenelement element) {
-		Datenelement data = new Datenelement(null);
+		Datenelement data = new Datenelement(null,0);
 		if(element.equals(getElement())) {
 			data=getElement();
 		}
@@ -33,15 +33,18 @@ public class Knoten {
 			besucht = true;
 			for(int i=0;i<n;i++) {
 				if(naechster[i].getBesucht()==false)
-					naechster[i].suche(element);
+					data = naechster[i].suche(element);
+			}
 		}
-		}
-		return null;
+		return data;
 	}
 	public void setBesucht(boolean i) {
 		besucht=i;
 	}
 	public boolean getBesucht() {
 		return besucht;
+	}
+	public Knoten getNaechster(int index) {
+		return naechster[index];
 	}
 }
