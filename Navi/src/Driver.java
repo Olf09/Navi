@@ -17,20 +17,20 @@ public class Driver {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		try {
-			Connection myConn = DriverManager.getConnection("jdbc:postgresql://unerricht01.gym-friedberg.de/q11","q11info3", "q11info3");
+			Connection myConn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres","postgres", "navi");
 		
 			Statement myStmt = myConn.createStatement();
-		
+		/**
 			ResultSet myRs = myStmt.executeQuery("select * from stadt;");
 		
 			Graph g = new Graph(80);
 			for(int i=0;i<80;i++) {
 				myRs.next();
-				g.knotenHinzufuegen(i, new Knoten(new Datenelement(myRs.getString("ort"),0),80));
+				g.knotenHinzufuegen(i, new Knoten(new Datenelement(myRs.getString("ort")),80));
 			}
 			
-			System.out.println(g.getKnoten(1).getElement());
-			/**
+			g.knotenFuellen();
+			*/
 			ResultSet myRs = myStmt.executeQuery("select * from routen;");
 			
 			
@@ -67,7 +67,7 @@ public class Driver {
 			}
 			g.dijkstra(f,k);
 			System.out.println("hi");
-			*/
+			
 		}
 		
 		catch (Exception exc) {
