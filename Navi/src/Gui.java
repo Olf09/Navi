@@ -114,7 +114,7 @@ public class Gui {
 				JLabel[] f = new JLabel[10];
 				for(int i=0; i<10; i++) {
 				f[i]=new JLabel("ab");
-				f[i].setBounds(500+i*150, 500, 300, 100);
+				f[i].setBounds(500, 500+150*i, 300, 100);
 				frame.getContentPane().add(f[i]);
 				}
 				frame.getContentPane().repaint();
