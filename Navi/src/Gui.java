@@ -113,8 +113,8 @@ public class Gui {
 				new Graph(5).auslesen(textField.getText() ,textField_1.getText());
 				JLabel[] f = new JLabel[10];
 				for(int i=0; i<10; i++) {
-				f[i]=new JLabel("ab");
-				f[i].setBounds(500, 500+150*i, 300, 100);
+				f[i]=new JLabel("Für"+Ausgabe.getZwischenziel(i).getEntfernung()+"in Richtung"+Ausgabe.getZwischenziel(i).toString());
+				f[i].setBounds(300, 50+150*i, 300, 100);
 				frame.getContentPane().add(f[i]);
 				}
 				frame.getContentPane().repaint();
