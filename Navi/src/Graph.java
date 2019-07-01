@@ -70,16 +70,28 @@ public class Graph{
 	public void favoritEinfuegen(Datenelement favorit) {}
 	public void zuHauseEinfuegen(Datenelement zuHause) {}
 	public void routeEinfuegen(Datenelement anfangsort, Datenelement zielort) {}
-	public Ausgabe auslesen(Datenelement anfangsort, Datenelement zielort) {	
-		dijkstra(anfangsort,zielort);
+	public Ausgabe auslesen(String anfangsort, String zielort) {	
+		Datenelement start = new Datenelement(null,0);
+		Datenelement ziel = new Datenelement(null,0);
+		for(int i=0;i<n;i++) {
+			if(knoten[i].getElement().toString()==anfangsort) {
+				start=knoten[i].getElement();
+			}
+		}
+		for(int i=0;i<n;i++) {
+			if(knoten[i].getElement().toString()==zielort) {
+				ziel=knoten[i].getElement();
+			}
+		}
+		dijkstra(start,ziel);
 		List<Datenelement> liste = new ArrayList<Datenelement>();
-		liste.add(zielort);
-		Datenelement e = zielort;
-		while(!liste.contains(anfangsort)) {
+		liste.add(ziel);
+		Datenelement e = ziel;
+		while(!liste.contains(start)) {
 			e=e.getVorgaenger();
 			liste.add(e);
 		}
-		return new Ausgabe(liste,zielort.getEntfernung());	
+		return new Ausgabe(liste,ziel.getEntfernung());	
 	}
 	public Datenelement suche(Datenelement element) {
 		for(int i=0;i<n;i++) {

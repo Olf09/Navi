@@ -10,7 +10,7 @@ import java.util.ArrayList;
  *
  */
 public class Ausgabe {
-	private ArrayList<Datenelement> zwischenziel;
+	private static ArrayList<Datenelement> zwischenziel;
 	private int strecke;
 	
 	public Ausgabe(List<Datenelement> zwischenziel, int strecke) {
@@ -19,5 +19,8 @@ public class Ausgabe {
 	}
 	public int getStrecke() {
 		return strecke;
+	}
+	public static Datenelement getZwischenziel(int index) {
+		return zwischenziel.get(index);
 	}
 }
